@@ -31,7 +31,7 @@ const RestaurantItem = ({ item }) => {
 export default RestaurantItem;
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    padding: 10,
   },
   image: {
     width: '100%',

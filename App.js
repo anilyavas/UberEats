@@ -1,18 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, SafeAreaView } from 'react-native';
-import RestaurantItem from './src/components/RestaurantItem';
-import restaurants from './assets/data/restaurants.json';
+import { StyleSheet, View } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import RestaurantDetailsScreen from './src/screens/RestaurantDetailsScreen';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        contentContainerStyle={{ gap: 10 }}
-        data={restaurants}
-        renderItem={({ item }) => <RestaurantItem item={item} />}
-      />
+    <View style={styles.container}>
+      <RestaurantDetailsScreen />
       <StatusBar style='auto' />
-    </SafeAreaView>
+    </View>
   );
 }
 
