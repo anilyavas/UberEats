@@ -2,29 +2,28 @@ import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import DishListItem from '../components/DishListItem';
 import restaurants from '../../assets/data/restaurants.json';
-import Header from '../components/Header';
 
 const restaurant = restaurants[0];
 
-const RestaurantDetailsScreen = () => {
+const Header = () => {
   return (
     <View style={styles.container}>
-      <FlatList
-        ListHeaderComponent={() => <Header />}
-        data={restaurant.dishes}
-        renderItem={({ item }) => <DishListItem dish={item} />}
-      />
-      <Ionicons
-        name='arrow-back-circle'
-        size={45}
-        color='white'
-        style={styles.icon}
-      />
+      <Image source={{ uri: restaurant.image }} style={styles.image} />
+
+      <View style={{ padding: 10 }}>
+        <Text style={styles.name}>{restaurant.name}</Text>
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Text style={styles.fee}>{restaurant.deliveryFee}</Text>
+          <Text style={styles.fee}>
+            {restaurant.maxDeliveryTime}-{restaurant.maxDeliveryTime} minutes
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };
 
-export default RestaurantDetailsScreen;
+export default Header;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 5 / 3,
   },
-  icon: {
+  iconContainer: {
     position: 'absolute',
     top: 40,
     left: 10,
