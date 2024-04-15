@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 15,
     alignItems: 'center',
+    padding: 10,
   },
   quantityContainer: {
     backgroundColor: 'lightgrey',
