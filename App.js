@@ -3,11 +3,12 @@ import { StyleSheet, View } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import RestaurantDetailsScreen from './src/screens/RestaurantDetailsScreen';
 import MenuItemDetailsScreen from './src/screens/MenuItemDetailsScreen';
+import CardScreen from './src/screens/CardScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MenuItemDetailsScreen />
+      <CardScreen />
       <StatusBar style='light' />
     </View>
   );

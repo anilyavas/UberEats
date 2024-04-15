@@ -44,7 +44,7 @@ const MenuItemDetailsScreen = () => {
       </View>
       <Pressable onPress={addToCard} style={styles.button}>
         <Text style={styles.buttonText}>
-          Add {quantity} items to the card ($ {calculatePrice()})
+          Add {quantity} items to the card &#8226; $ {calculatePrice()}
         </Text>
       </Pressable>
     </View>
