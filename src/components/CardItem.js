@@ -16,7 +16,7 @@ export default CardItem;
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    marginTop: 50,
+    marginVertical: 15,
     alignItems: 'center',
   },
   quantityContainer: {

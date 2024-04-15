@@ -8,7 +8,7 @@ const CardScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.name}>{restaurant.name}</Text>
-      <Text>Your Items</Text>
+      <Text style={styles.subtitle}>Your Items</Text>
       <FlatList
         data={restaurant.dishes}
         renderItem={({ item }) => <CardItem dishItem={item} />}
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   seperator: {
     height: 1,
     backgroundColor: 'lightgrey',
+    marginVertical: 10,
   },
   button: {
     backgroundColor: 'black',
@@ -50,5 +51,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
     fontSize: 20,
+  },
+  subtitle: {
+    fontWeight: 'bold',
+    marginTop: 20,
+    fontSize: 19,
   },
 });
