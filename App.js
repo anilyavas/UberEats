@@ -1,18 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
-import RestaurantDetailsScreen from './src/screens/RestaurantDetailsScreen';
-import MenuItemDetailsScreen from './src/screens/MenuItemDetailsScreen';
-import CardScreen from './src/screens/CardScreen';
-import OrdersScreen from './src/screens/OrdersScreen';
-import OrderDetailsScreen from './src/screens/OrderDetailsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootNavigator } from './src/navigation/Navigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <OrderDetailsScreen />
-      <StatusBar style='light' />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <RootNavigator />
+        <StatusBar style='light' />
+      </View>
+    </NavigationContainer>
   );
 }
 
