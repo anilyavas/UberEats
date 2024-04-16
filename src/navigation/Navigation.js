@@ -12,13 +12,8 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Home' component={HomeTabs} />
-      <Stack.Screen
-        name='Restaurant'
-        component={RestaurantDetailsScreen}
-        options={{ headerShown: false }}
-      />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='HomeTabs' component={HomeTabs} />
     </Stack.Navigator>
   );
 };
@@ -30,7 +25,7 @@ const HomeTabs = () => {
     <Tab.Navigator barStyle={{ backgroundColor: 'white' }}>
       <Tab.Screen
         name='Home'
-        component={HomeScreen}
+        component={HomeStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <Foundation name='home' size={24} color={color} />
@@ -39,7 +34,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name='Orders'
-        component={OrdersScreen}
+        component={OrdersStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='list-alt' size={24} color={color} />
@@ -56,6 +51,28 @@ const HomeTabs = () => {
         }}
       />
     </Tab.Navigator>
+  );
+};
+
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackNavigator = () => {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name='Restaurants' component={HomeScreen} />
+      <HomeStack.Screen name='Restaurant' component={RestaurantDetailsScreen} />
+      <HomeStack.Screen name='Dish' component={MenuItemDetailsScreen} />
+      <HomeStack.Screen name='Card' component={CardScreen} />
+    </HomeStack.Navigator>
+  );
+};
+const OrdersStack = createNativeStackNavigator();
+const OrdersStackNavigator = () => {
+  return (
+    <OrdersStack.Navigator>
+      <OrdersStack.Screen name='Orders' component={OrdersScreen} />
+      <OrdersStack.Screen name='Order' component={OrderDetailsScreen} />
+    </OrdersStack.Navigator>
   );
 };
 export default RootNavigator;

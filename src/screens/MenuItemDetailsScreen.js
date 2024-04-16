@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet, Button, Pressable } from 'react-native';
-import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 import restaurants from '../../assets/data/restaurants.json';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const dish = restaurants[0].dishes[0];
 
 const MenuItemDetailsScreen = () => {
+  const navigation = useNavigation();
   const [quantity, setQuantity] = useState(0);
 
   const onMinusPressed = () => {
@@ -20,7 +22,6 @@ const MenuItemDetailsScreen = () => {
   const calculatePrice = () => {
     return (dish.price * quantity).toFixed(2);
   };
-  const addToCard = () => {};
 
   return (
     <View style={styles.container}>
@@ -42,7 +43,10 @@ const MenuItemDetailsScreen = () => {
           onPress={onPlusPressed}
         />
       </View>
-      <Pressable onPress={addToCard} style={styles.button}>
+      <Pressable
+        onPress={() => navigation.navigate('Card')}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>
           Add {quantity} items to the card &#8226; $ {calculatePrice()}
         </Text>
