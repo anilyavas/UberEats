@@ -3,12 +3,13 @@ import { Ionicons } from '@expo/vector-icons';
 import DishListItem from '../components/DishListItem';
 import restaurants from '../../assets/data/restaurants.json';
 import Header from '../components/Header';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 const restaurant = restaurants[0];
 
 const RestaurantDetailsScreen = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const id = route.params?.id;
 
   return (
@@ -17,9 +18,9 @@ const RestaurantDetailsScreen = () => {
         ListHeaderComponent={() => <Header restaurant={restaurant} />}
         data={restaurant.dishes}
         renderItem={({ item }) => <DishListItem dish={item} />}
-        keyExtractor={({ item }) => item.id}
       />
       <Ionicons
+        onPress={() => navigation.goBack()}
         name='arrow-back-circle'
         size={45}
         color='white'
