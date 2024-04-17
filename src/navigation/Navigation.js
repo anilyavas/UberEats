@@ -67,6 +67,7 @@ const HomeStackNavigator = () => {
   );
 };
 const OrdersStack = createNativeStackNavigator();
+
 const OrdersStackNavigator = () => {
   return (
     <OrdersStack.Navigator>
@@ -75,4 +76,5 @@ const OrdersStackNavigator = () => {
     </OrdersStack.Navigator>
   );
 };
+
 export default RootNavigator;
