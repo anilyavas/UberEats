@@ -42,7 +42,7 @@ const ProfileScreen = () => {
       <Button onPress={onSave} title='Save' />
       <Text
         onPress={() => Auth.signOut()}
-        style={{ textAlign: 'center', color: 'red', margin: 10 }}
+        style={{ textAlign: 'center', color: 'red', margin: 10, fontSize: 16 }}
       >
         Sign Out
       </Text>

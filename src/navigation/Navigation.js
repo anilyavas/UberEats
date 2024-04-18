@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import CardScreen from '../screens/CardScreen';
@@ -38,12 +37,13 @@ const HomeTabs = () => {
         }}
       />
       <Tab.Screen
-        name='Orders'
+        name='OrdersScreen'
         component={OrdersStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='list-alt' size={24} color={color} />
           ),
+          title: 'Orders',
         }}
       />
       <Tab.Screen
@@ -65,7 +65,11 @@ const HomeStackNavigator = () => {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name='Restaurants' component={HomeScreen} />
-      <HomeStack.Screen name='Restaurant' component={RestaurantDetailsScreen} />
+      <HomeStack.Screen
+        name='Restaurant'
+        component={RestaurantDetailsScreen}
+        options={{ headerShown: false }}
+      />
       <HomeStack.Screen name='Dish' component={MenuItemDetailsScreen} />
       <HomeStack.Screen name='Card' component={CardScreen} />
     </HomeStack.Navigator>
